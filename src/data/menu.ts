@@ -98,7 +98,6 @@ export const menuCategories: MenuCategory[] = [
 
 export const downloadMenus: DownloadMenu[] = [
   { title: "Menu Normal", description: "Carta completa com todos os pratos disponíveis", filename: "menu-normal.pdf" },
-  { title: "Menu de Grupo", description: "Opções especiais para grupos e eventos", filename: "menu-grupo.pdf" },
   { title: "Carta de Vinhos", description: "Seleção especial de vinhos portugueses", filename: "_Carta de Vinhos 2024 Final.pdf" },
   { title: "Carta de Sobremesas", description: "Doces tradicionais e sobremesas da casa", filename: "Carta de Sobremesas.pdf" },
 ];
