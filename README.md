@@ -29,8 +29,8 @@ A pet project for the Taberna Saloia restaurant, based in Loures, Portugal. Buil
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/raging04/saloia-showcase/
-   cd saloia-showcase
+   git clone https://github.com/raging04/taberna-saloia.git
+   cd taberna-saloia
    ```
 
 2. **Install dependencies**
