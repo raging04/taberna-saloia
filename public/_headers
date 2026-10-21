@@ -1,0 +1,13 @@
+# Cloudflare Pages headers. Mirrors customHttp.yml (Amplify); keep both in
+# sync while the two hosts coexist.
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+  Content-Security-Policy-Report-Only: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://connect.facebook.net https://widget.letsumai.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; media-src 'self'; frame-src https://www.google.com https://www.openstreetmap.org https://www.googletagmanager.com https://widget.letsumai.com; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://connect.facebook.net https://*.letsumai.com; base-uri 'self'
