@@ -61,20 +61,15 @@ Videos are already re-encoded to web-optimized H.264. To redo them you need
 ffmpeg -i input.mov -an -vf "scale='min(1280,iw)':-2" -c:v libx264 -crf 28 -movflags +faststart output.mov
 ```
 
-## Deployment (AWS Amplify)
+## Deployment (Cloudflare Pages)
 
-The site is hosted on **AWS Amplify**, which builds automatically on push using
-[`amplify.yml`](./amplify.yml). Two things are configured outside the build:
+The site is hosted on **Cloudflare Pages**. Every push to `main` builds with
+`npm run build` and publishes `dist/`. Node version comes from `.nvmrc`.
 
-- **Custom HTTP headers** (cache + security headers + CSP) live in
-  [`customHttp.yml`](./customHttp.yml) and are applied by Amplify automatically.
-- **SPA rewrite** — Amplify rewrites are set in the **console** (App settings →
-  Rewrites and redirects), not in a repo file. Add a single rule so deep links
-  like `/ementa` survive a hard refresh:
-
-  | Source address | Target address | Type |
-  | --- | --- | --- |
-  | `</^[^.]+$\|\.(?!(css\|gif\|ico\|jpg\|jpeg\|js\|png\|txt\|svg\|woff\|woff2\|ttf\|map\|json\|webp\|mp4\|mov\|pdf)$)([^.]+$)/>` | `/index.html` | `200 (Rewrite)` |
+- **HTTP headers** (cache, security headers, CSP) live in
+  [`public/_headers`](./public/_headers). Pages applies them on deploy.
+- **SPA routing** needs no rule: Pages serves `index.html` for any path that
+  has no file, so deep links like `/ementa` survive a hard refresh.
 
 ## License
 
